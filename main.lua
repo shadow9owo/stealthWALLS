@@ -84,9 +84,7 @@ end)
 
 Players.PlayerAdded:Connect(function(newPlayer)
     newPlayer.CharacterAdded:Connect(function()
-        if isWallhackActive then
-            addPlayerHighlight(newPlayer)
-        end
+        if isWallhackActive then addPlayerHighlight(newPlayer) end
     end)
 end)
 
@@ -131,7 +129,6 @@ RunService.RenderStepped:Connect(function()
                 local midpoint  = (startPos + endPos) * 0.5
                 local direction = endPos - startPos
                 local length    = direction.Magnitude
-
                 tracer.Size   = Vector3.new(0.1, length, 0.1)
                 tracer.CFrame = CFrame.new(midpoint, endPos) * CFrame.Angles(math.rad(90), 0, 0)
             else
@@ -150,5 +147,16 @@ RunService.RenderStepped:Connect(function()
     else
         humanoid.MaxHealth = 100
         humanoid.Health    = 100
+    end
+
+    if isSpeedBoosted and rootPart then
+        local moveDir = Vector3.zero
+        if UserInputService:IsKeyDown(Enum.KeyCode.W) then moveDir += camera.CFrame.LookVector end
+        if UserInputService:IsKeyDown(Enum.KeyCode.S) then moveDir -= camera.CFrame.LookVector end
+        if UserInputService:IsKeyDown(Enum.KeyCode.A) then moveDir -= camera.CFrame.RightVector end
+        if UserInputService:IsKeyDown(Enum.KeyCode.D) then moveDir += camera.CFrame.RightVector end
+        if moveDir.Magnitude > 0 then
+            rootPart.CFrame += moveDir.Unit * 0.2
+        end
     end
 end)
