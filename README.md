@@ -5,8 +5,8 @@ roblox wallhacks / closet cheat
 
 it is undetected as it is 30/06/2025
 
-LeftShift - SPEED WALK toggle
-CapsLock - God Mode toggle (increases health a lot)
-X - WallHack toggle
+LeftShift - SPEED WALK toggle<br>
+CapsLock - God Mode toggle (increases health a lot)<br>
+X - WallHack toggle<br>
 
 feel free 2 fork
