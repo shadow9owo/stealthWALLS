@@ -11,9 +11,6 @@ local isSpeedBoosted   = false
 local isGodModeEnabled = false
 local isWallhackActive = false
 
-local normalSpeed  = 16
-local boostedSpeed = 50
-
 local localCharacter = localPlayer.Character or localPlayer.CharacterAdded:Wait()
 localPlayer.CharacterAdded:Connect(function(char)
     localCharacter = char
@@ -108,7 +105,6 @@ UserInputService.InputBegan:Connect(function(input, processed)
         local hum = getLocalHumanoid()
         if hum then
             isSpeedBoosted = not isSpeedBoosted
-            hum.WalkSpeed  = isSpeedBoosted and boostedSpeed or normalSpeed
         end
     elseif input.KeyCode == Enum.KeyCode.CapsLock then
         isGodModeEnabled = not isGodModeEnabled
