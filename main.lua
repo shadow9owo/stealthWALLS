@@ -8,7 +8,6 @@ local localPlayer = Players.LocalPlayer
 local camera      = workspace.CurrentCamera
 
 local isSpeedBoosted   = false
-local isGodModeEnabled = false
 local isWallhackActive = false
 
 local localCharacter = localPlayer.Character or localPlayer.CharacterAdded:Wait()
@@ -95,8 +94,6 @@ UserInputService.InputBegan:Connect(function(input, processed)
 		if hum then
 			isSpeedBoosted = not isSpeedBoosted
 		end
-	elseif input.KeyCode == Enum.KeyCode.CapsLock then
-		isGodModeEnabled = not isGodModeEnabled
 	elseif input.KeyCode == Enum.KeyCode.X then
 		isWallhackActive = not isWallhackActive
 	end
@@ -215,7 +212,6 @@ RunService.RenderStepped:Connect(function()
 	if isHudVisible then
 		statusLabel.Text = "=== Cheat Status ===\n" ..
 			"Wallhack (X): " .. (isWallhackActive and "ON" or "OFF") .. "\n" ..
-			"Godmode (CapsLock): " .. (isGodModeEnabled and "ON" or "OFF") .. "\n" ..
 			"Speed Boost (LeftShift): " .. (isSpeedBoosted and "ON" or "OFF") .. "\n\n" ..
 			"Press F3 to toggle this HUD"
 	end
